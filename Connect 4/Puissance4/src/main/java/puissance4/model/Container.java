@@ -3,7 +3,9 @@ package puissance4.model;
 import puissance4.exception.ColumnFullException;
 import puissance4.exception.NonExistentPositionException;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class Container {
 
@@ -96,6 +98,10 @@ public class Container {
 
     private boolean sameColor(Position position, Direction direction, Color color) throws NonExistentPositionException {
         int i = 0;
+        Map<Direction, Direction> opposites = createOpposites();
+        /**
+         * @TODO faire un count qui s'il atteint 4 le joueur a gagné
+         */
         boolean notSameColor = false;
         while (i < 3 && !notSameColor) {
             Position next = position.next(direction);
@@ -106,6 +112,20 @@ public class Container {
             position = next;
         }
         return !notSameColor;
+    }
+
+    private Map<Direction,Direction> createOpposites() {
+        Map<Direction,Direction> map = new HashMap<>();
+        map.put(Direction.N, Direction.S);
+        map.put(Direction.S,Direction.N);
+        map.put(Direction.E, Direction.W);
+        map.put(Direction.W,Direction.E);
+        map.put(Direction.NW, Direction.SE);
+        map.put(Direction.NE,Direction.SW);
+        map.put(Direction.SW, Direction.SE);
+        map.put(Direction.SE,Direction.SW);
+
+        return map;
     }
 
     private boolean checkDraw() throws NonExistentPositionException {
