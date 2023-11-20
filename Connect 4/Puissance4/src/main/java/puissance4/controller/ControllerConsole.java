@@ -8,8 +8,8 @@ import puissance4.view.ViewConsole;
 
 public class ControllerConsole {
 
-    private Model modelConsole;
-    private ViewConsole viewConsole;
+    private final Model modelConsole;
+    private final ViewConsole viewConsole;
 
     public ControllerConsole() {
         this.modelConsole = new ModelConsole();

@@ -25,6 +25,9 @@ public class ViewConsole {
             return Integer.parseInt(readEntry())-1;
     }
 
+    /**
+     * @TODO Changer la méthode pour respecter l'encapsulation. Solution : construire un string ou envoyer copie
+     */
     public void displayContainer() {
         try {
             Container container = modelConsole.getContainer();

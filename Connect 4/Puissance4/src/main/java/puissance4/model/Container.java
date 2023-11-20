@@ -6,17 +6,28 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * This class contains all the methods to handle a container, which is technically the board
+ */
 public class Container {
 
     private final Box[][] container;
     private boolean isWin;
     private boolean isDraw;
 
+    /**
+     * Constructor for the container
+     */
     public Container() {
         this.container = new Box[6][7];
+        this.isWin = false;
+        this.isDraw = false;
         setUp();
     }
 
+    /**
+     * This method sets up the container for the usage
+     */
     public void setUp() {
         for (int i = 0; i < container.length; i++) {
             for (int j = 0; j < container[i].length; j++) {
