@@ -1,5 +1,6 @@
 package puissance4.model;
 
+import javafx.geometry.Pos;
 import puissance4.exception.ColumnFullException;
 import puissance4.exception.NonExistentPositionException;
 
@@ -97,21 +98,12 @@ public class Container {
     }
 
     private boolean sameColor(Position position, Direction direction, Color color) throws NonExistentPositionException {
-        int i = 0;
         Map<Direction, Direction> opposites = createOpposites();
-        /**
-         * @TODO faire un count qui s'il atteint 4 le joueur a gagné
-         */
-        boolean notSameColor = false;
-        while (i < 3 && !notSameColor) {
-            Position next = position.next(direction);
-            if (!this.contains(next) || (this.getCoin(next) == null || this.getCoin(next).getColor() != color)) {
-                notSameColor = true;
-            }
-            i++;
-            position = next;
+        int count = countSameColorCoins(position,direction,1,color);
+        if (count < 4) {
+            count += countSameColorCoins(position,opposites.get(direction),0,color);
         }
-        return !notSameColor;
+        return count == 4;
     }
 
     private Map<Direction,Direction> createOpposites() {
@@ -126,6 +118,22 @@ public class Container {
         map.put(Direction.SE,Direction.SW);
 
         return map;
+    }
+
+    private int countSameColorCoins(Position position, Direction direction, int count, Color color) throws NonExistentPositionException {
+        int i = 0;
+        boolean sameColor = true;
+        while (i < 3 && count != 4 && sameColor){
+            Position next = position.next(direction);
+            if (this.contains(next) && (this.getCoin(next) != null && this.getCoin(next).getColor() == color)) {
+                count++;
+            } else {
+                sameColor = false;
+            }
+            i++;
+            position = next;
+        }
+        return count;
     }
 
     private boolean checkDraw() throws NonExistentPositionException {
