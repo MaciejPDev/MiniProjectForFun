@@ -6,10 +6,13 @@ import puissance4.model.Model;
 import puissance4.model.Position;
 
 import java.util.Scanner;
+import java.util.regex.Pattern;
 
 public class ViewConsole {
 
     private final Model modelConsole;
+
+    private final Pattern pattern = Pattern.compile("[1-7]+");
 
     private final String ANSI_RESET = "\u001B[0m";
     private final Scanner scanner = new Scanner(System.in);
@@ -19,9 +22,7 @@ public class ViewConsole {
     }
 
     public int askForColumn() {
-        String x = readEntry().replaceAll(" ", "");
-        int column = Integer.parseInt(x);
-        return column - 1;
+            return Integer.parseInt(readEntry())-1;
     }
 
     public void displayContainer() {
@@ -44,12 +45,12 @@ public class ViewConsole {
 
     private String readEntry() {
         System.out.println("Enter a number between 1 and 7, both included.");
-        while (!scanner.hasNextInt()) {
-            scanner.next();
-            System.out.println("Entered message is not a number");
-            System.out.println("Enter a number between 1 and 7, both included.");
+        String x = scanner.nextLine();
+        if (pattern.matcher(x).find()) {
+            return x;
+        } else {
+            throw new IllegalArgumentException("Entered message is not a number or is not between 1 and 7");
         }
-        return scanner.nextLine();
     }
 
     public void diplayWinner() {

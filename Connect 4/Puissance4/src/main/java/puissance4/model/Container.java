@@ -1,9 +1,7 @@
 package puissance4.model;
 
-import javafx.geometry.Pos;
 import puissance4.exception.ColumnFullException;
 import puissance4.exception.NonExistentPositionException;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -83,11 +81,7 @@ public class Container {
                 Direction.N,
                 Direction.NW,
                 Direction.NE,
-                Direction.S,
-                Direction.SW,
-                Direction.SE,
-                Direction.W,
-                Direction.E
+                Direction.W
         );
         for (Direction dir : directions) {
             if (sameColor(position, dir, color)) {

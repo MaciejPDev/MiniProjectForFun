@@ -24,7 +24,7 @@ public class ControllerConsole {
                 viewConsole.displayTurn();
                 viewConsole.displayContainer();
                 modelConsole.placeACoin(viewConsole.askForColumn());
-            } catch (NonExistentPositionException | ColumnFullException e) {
+            } catch (NonExistentPositionException | ColumnFullException | IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
