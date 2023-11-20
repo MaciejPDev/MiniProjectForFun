@@ -1,5 +1,8 @@
 package puissance4.model;
 
+/**
+ * @TODO JAVADOC
+ */
 public enum Direction {
     N(-1, 0), W(0, -1), E(0, 1), S(1, 0), NW(-1, -1), NE(-1, 1), SW(1, -1), SE(1, 1);
 

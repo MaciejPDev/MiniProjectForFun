@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 /**
+ * @TODO Finir la javadoc
+ */
+
+/**
  * This class contains all the methods to handle a container, which is technically the board
  */
 public class Container {
@@ -23,6 +27,16 @@ public class Container {
         this.isWin = false;
         this.isDraw = false;
         setUp();
+    }
+
+    /**
+     * Copy Constructor for the container
+     * @param container the container that will be copied
+     */
+    public Container(Container container){
+        this.container = container.container;
+        this.isWin = container.isWin;
+        this.isDraw = container.isDraw;
     }
 
     /**

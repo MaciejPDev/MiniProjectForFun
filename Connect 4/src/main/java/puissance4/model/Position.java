@@ -2,6 +2,9 @@ package puissance4.model;
 
 import java.util.Objects;
 
+/**
+ * @TODO JAVADOC
+ */
 public class Position {
 
     private final int x;

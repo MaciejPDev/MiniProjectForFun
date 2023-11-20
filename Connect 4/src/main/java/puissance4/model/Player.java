@@ -1,5 +1,8 @@
 package puissance4.model;
 
+/**
+ * @TODO JAVADOC
+ */
 public class Player {
 
     private final Color color;

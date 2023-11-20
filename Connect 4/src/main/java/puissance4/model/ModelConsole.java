@@ -3,13 +3,16 @@ package puissance4.model;
 import puissance4.exception.ColumnFullException;
 import puissance4.exception.NonExistentPositionException;
 
+/**
+ * @TODO JAVADOC
+ */
 public class ModelConsole implements Model {
 
-    private Container container;
+    private final Container container;
     private State state;
     private Player currentPlayer;
-    private Player yellowPlayer;
-    private Player bluePlayer;
+    private final Player yellowPlayer;
+    private final Player bluePlayer;
 
     public ModelConsole() {
         this.yellowPlayer = new Player(Color.YELLOW);
@@ -25,7 +28,7 @@ public class ModelConsole implements Model {
 
     @Override
     public Container getContainer() {
-        return container;
+        return new Container(container);
     }
 
     @Override

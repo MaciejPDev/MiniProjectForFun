@@ -4,6 +4,9 @@ package puissance4.model;
 import puissance4.exception.ColumnFullException;
 import puissance4.exception.NonExistentPositionException;
 
+/**
+ * @TODO JAVADOC
+ */
 public interface Model {
 
     void start();

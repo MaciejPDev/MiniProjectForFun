@@ -6,6 +6,9 @@ import puissance4.model.Model;
 import puissance4.model.ModelConsole;
 import puissance4.view.ViewConsole;
 
+/**
+ * @TODO JAVADOC
+ */
 public class ControllerConsole {
 
     private final Model modelConsole;
