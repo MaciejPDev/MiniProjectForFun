@@ -9,6 +9,7 @@ public class Player {
 
     /**
      * Constructor for the Player
+     *
      * @param color
      */
     public Player(Color color) {
@@ -17,6 +18,7 @@ public class Player {
 
     /**
      * Getter for the Color attribute
+     *
      * @return the color of the Player
      */
     public Color getColor() {

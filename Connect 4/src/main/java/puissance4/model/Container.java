@@ -2,6 +2,7 @@ package puissance4.model;
 
 import puissance4.exception.ColumnFullException;
 import puissance4.exception.NonExistentPositionException;
+
 import java.util.List;
 
 /**
@@ -33,9 +34,10 @@ public class Container {
 
     /**
      * Copy Constructor for the container
+     *
      * @param container the container that will be copied
      */
-    public Container(Container container){
+    public Container(Container container) {
         this.height = container.height;
         this.width = container.width;
         this.container = container.container;
@@ -56,6 +58,7 @@ public class Container {
 
     /**
      * Getter for the width attribute
+     *
      * @return the value of width
      */
     public int getWidth() {
@@ -64,6 +67,7 @@ public class Container {
 
     /**
      * Getter for the height attribute
+     *
      * @return the value of height
      */
     public int getHeight() {
@@ -72,13 +76,16 @@ public class Container {
 
     /**
      * Getter for the isWin attribute
+     *
      * @return the value of isWin
      */
     public boolean isWin() {
         return isWin;
     }
+
     /**
      * Getter for the isDraw attribute
+     *
      * @return the value of isDraw
      */
     public boolean isDraw() {
@@ -87,6 +94,7 @@ public class Container {
 
     /**
      * This method verifies if the given position is situated in the container
+     *
      * @param position the given position
      * @return true if the position is situated within the boundaries, false otherwise
      */
@@ -98,6 +106,7 @@ public class Container {
 
     /**
      * Checks if the box at the given position is free or does it contain a coin
+     *
      * @param position the given position
      * @return true if the position is free, false otherwise
      * @throws NonExistentPositionException if the container does not contain the given position,
@@ -112,6 +121,7 @@ public class Container {
 
     /**
      * Gets the coin at the given position
+     *
      * @param position the given position
      * @return the coin or null if there is no coin at this position
      * @throws NonExistentPositionException if the container does not contain the given position,
@@ -126,11 +136,12 @@ public class Container {
 
     /**
      * This method will place a Coin of the given color in the given column if there is still some space
-     * @param y the column
+     *
+     * @param y     the column
      * @param color the color of the coin
      * @throws NonExistentPositionException if the container does not contain the given position,
      *                                      this exception will be launched
-     * @throws ColumnFullException if the column has no more free space, this exception will be launched
+     * @throws ColumnFullException          if the column has no more free space, this exception will be launched
      */
     public void placeACoin(int y, Color color) throws NonExistentPositionException, ColumnFullException {
         Position position = new Position(0, y);
@@ -145,6 +156,7 @@ public class Container {
 
     /**
      * This
+     *
      * @param position
      * @return
      * @throws NonExistentPositionException
@@ -173,9 +185,9 @@ public class Container {
     }
 
     private boolean sameColor(Position position, Direction direction, Color color) throws NonExistentPositionException {
-        int count = countSameColorCoins(position,direction,1,color);
+        int count = countSameColorCoins(position, direction, 1, color);
         if (count < 4) {
-            count += countSameColorCoins(position,direction.getOpposite(),0,color);
+            count += countSameColorCoins(position, direction.getOpposite(), 0, color);
         }
         return count == 4;
     }
@@ -183,7 +195,7 @@ public class Container {
     private int countSameColorCoins(Position position, Direction direction, int count, Color color) throws NonExistentPositionException {
         int i = 0;
         boolean sameColor = true;
-        while (i < 3 && count != 4 && sameColor){
+        while (i < 3 && count != 4 && sameColor) {
             Position next = position.next(direction);
             if (this.contains(next) && (this.getCoin(next) != null && this.getCoin(next).getColor() == color)) {
                 count++;
@@ -197,9 +209,9 @@ public class Container {
     }
 
     private boolean checkDraw() throws NonExistentPositionException {
-        for (int i = 0; i < container.length; i ++){
-            for (int j = 0; j < container[i].length; j++){
-                if (this.getCoin(new Position(i,j)) == null) {
+        for (int i = 0; i < container.length; i++) {
+            for (int j = 0; j < container[i].length; j++) {
+                if (this.getCoin(new Position(i, j)) == null) {
                     return false;
                 }
             }

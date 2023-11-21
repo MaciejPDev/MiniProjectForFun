@@ -26,7 +26,7 @@ public class ViewConsole {
     }
 
     public int askForColumn() {
-            return Integer.parseInt(readEntry())-1;
+        return Integer.parseInt(readEntry()) - 1;
     }
 
     public void displayContainer() {
@@ -77,7 +77,7 @@ public class ViewConsole {
          */
     }
 
-    public void displayTurn(){
+    public void displayTurn() {
         System.out.println("It's the turn of " + modelConsole.getCurrentPlayer().getColor().getInfo() + "Player" + ANSI_RESET);
     }
 

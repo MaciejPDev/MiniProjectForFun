@@ -31,9 +31,9 @@ public class ControllerConsole {
                 System.out.println(e.getMessage());
             }
         }
-        if (modelConsole.win()){
+        if (modelConsole.win()) {
             viewConsole.displayWinner();
-        } else if (modelConsole.draw()){
+        } else if (modelConsole.draw()) {
             viewConsole.displayDraw();
         }
     }

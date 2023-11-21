@@ -9,6 +9,7 @@ public class Coin {
 
     /**
      * Constructor for the Coin
+     *
      * @param color the color of the coin
      */
     public Coin(Color color) {
@@ -17,6 +18,7 @@ public class Coin {
 
     /**
      * Getter for the color of the coin
+     *
      * @return the color of the coin
      */
     public Color getColor() {

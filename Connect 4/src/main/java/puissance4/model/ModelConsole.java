@@ -67,7 +67,7 @@ public class ModelConsole implements Model {
     private void stateChanger() {
         if (this.container.isWin()) {
             state = State.WIN;
-        } else if (this.container.isDraw()){
+        } else if (this.container.isDraw()) {
             state = State.DRAW;
         }
     }

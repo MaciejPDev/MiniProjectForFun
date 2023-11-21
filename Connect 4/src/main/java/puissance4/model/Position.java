@@ -12,6 +12,7 @@ public class Position {
 
     /**
      * Constructor for the Position
+     *
      * @param x
      * @param y
      */
@@ -22,6 +23,7 @@ public class Position {
 
     /**
      * Getter for the x attribute
+     *
      * @return the value of x
      */
     public int getX() {
@@ -30,6 +32,7 @@ public class Position {
 
     /**
      * Getter for the y attribute
+     *
      * @return the value of y
      */
     public int getY() {
@@ -38,6 +41,7 @@ public class Position {
 
     /**
      * Returns a new Position which is the old position moved in the given direction
+     *
      * @param direction the given direction
      * @return a new Position
      */

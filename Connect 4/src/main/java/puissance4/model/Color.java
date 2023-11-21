@@ -11,6 +11,7 @@ public enum Color {
 
     /**
      * Private constructor for the Color
+     *
      * @param info the ANSI information needed for the change of color in the console
      */
     Color(String info) {
@@ -19,6 +20,7 @@ public enum Color {
 
     /**
      * Getter for the info
+     *
      * @return the info which is a String
      */
     public String getInfo() {
@@ -27,6 +29,7 @@ public enum Color {
 
     /**
      * Since there is only two colors, this method will return the opposite color
+     *
      * @return a color
      */
     public Color getOpposite() {

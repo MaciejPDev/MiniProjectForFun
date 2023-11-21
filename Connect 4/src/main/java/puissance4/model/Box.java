@@ -16,6 +16,7 @@ public class Box {
 
     /**
      * Getter for the coin attribut
+     *
      * @return a coin
      */
     public Coin getCoin() {
@@ -24,6 +25,7 @@ public class Box {
 
     /**
      * Setter for the coin attribut
+     *
      * @param coin a coin which will be placed in the Box
      */
     public void setCoin(Coin coin) {
@@ -32,6 +34,7 @@ public class Box {
 
     /**
      * This method verify is the box contains a coin or not
+     *
      * @return true if the box does not contain a coin, false otherwise
      */
     public boolean isFree() {
