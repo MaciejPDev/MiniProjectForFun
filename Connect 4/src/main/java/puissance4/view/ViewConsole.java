@@ -16,7 +16,7 @@ public class ViewConsole {
 
     private final Model modelConsole;
 
-    private final Pattern pattern = Pattern.compile("[1-7]+");
+    private final Pattern pattern = Pattern.compile("[0-9]+");
 
     private final String ANSI_RESET = "\u001B[0m";
     private final Scanner scanner = new Scanner(System.in);
@@ -32,8 +32,8 @@ public class ViewConsole {
     public void displayContainer() {
         try {
             Container container = modelConsole.getContainer();
-            for (int i = 0; i < container.getContainer().length; i++) {
-                for (int j = 0; j < container.getContainer()[i].length; j++) {
+            for (int i = 0; i < container.getHeight(); i++) {
+                for (int j = 0; j < container.getWidth(); j++) {
                     if (!container.isFree(new Position(i, j))) {
                         System.out.print("|" + container.getCoin(new Position(i, j)).getColor().getInfo() + " X " + ANSI_RESET);
                     } else {
@@ -53,11 +53,11 @@ public class ViewConsole {
         if (pattern.matcher(x).find()) {
             return x;
         } else {
-            throw new IllegalArgumentException("Entered message is not a number or is not between 1 and 7");
+            throw new IllegalArgumentException("Entered message is not a number");
         }
     }
 
-    public void diplayWinner() {
+    public void displayWinner() {
         displayContainer();
         System.out.println("The winner is " + modelConsole.getCurrentPlayer().getColor().getInfo() + "Player" + ANSI_RESET + ".");
     }

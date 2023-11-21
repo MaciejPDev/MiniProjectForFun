@@ -1,14 +1,14 @@
 package puissance4.model;
 
 /**
- * This class contains all the methods to handle a coin
+ * This class contains all the methods to handle a Coin
  */
 public class Coin {
 
     private Color color;
 
     /**
-     * Constructor for the coin
+     * Constructor for the Coin
      * @param color the color of the coin
      */
     public Coin(Color color) {

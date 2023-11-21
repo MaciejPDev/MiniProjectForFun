@@ -8,6 +8,18 @@ public enum Direction {
 
     private final int x;
     private final int y;
+    private Direction opposite;
+
+    static {
+        N.opposite = S;
+        S.opposite = N;
+        W.opposite = E;
+        E.opposite = W;
+        NW.opposite = SE;
+        NE.opposite = SW;
+        SW.opposite = NE;
+        SE.opposite = NW;
+    }
 
     Direction(int x, int y) {
         this.x = x;
@@ -20,5 +32,9 @@ public enum Direction {
 
     public int getY() {
         return y;
+    }
+
+    public Direction getOpposite() {
+        return opposite;
     }
 }

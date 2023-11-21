@@ -2,28 +2,30 @@ package puissance4.model;
 
 import puissance4.exception.ColumnFullException;
 import puissance4.exception.NonExistentPositionException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @TODO Finir la javadoc
  */
 
 /**
- * This class contains all the methods to handle a container, which is technically the board
+ * This class contains all the methods to handle a Container, which is technically the board
  */
 public class Container {
 
+    int height;
+    int width;
     private final Box[][] container;
     private boolean isWin;
     private boolean isDraw;
 
     /**
-     * Constructor for the container
+     * Constructor for the Container
      */
     public Container() {
-        this.container = new Box[6][7];
+        this.height = 6;
+        this.width = 7;
+        this.container = new Box[height][width];
         this.isWin = false;
         this.isDraw = false;
         setUp();
@@ -34,6 +36,8 @@ public class Container {
      * @param container the container that will be copied
      */
     public Container(Container container){
+        this.height = container.height;
+        this.width = container.width;
         this.container = container.container;
         this.isWin = container.isWin;
         this.isDraw = container.isDraw;
@@ -50,24 +54,55 @@ public class Container {
         }
     }
 
-    public Box[][] getContainer() {
-        return container;
+    /**
+     * Getter for the width attribute
+     * @return the value of width
+     */
+    public int getWidth() {
+        return width;
     }
 
+    /**
+     * Getter for the height attribute
+     * @return the value of height
+     */
+    public int getHeight() {
+        return height;
+    }
+
+    /**
+     * Getter for the isWin attribute
+     * @return the value of isWin
+     */
     public boolean isWin() {
         return isWin;
     }
-
+    /**
+     * Getter for the isDraw attribute
+     * @return the value of isDraw
+     */
     public boolean isDraw() {
         return isDraw;
     }
 
+    /**
+     * This method verifies if the given position is situated in the container
+     * @param position the given position
+     * @return true if the position is situated within the boundaries, false otherwise
+     */
     public boolean contains(Position position) {
         int x = position.getX();
         int y = position.getY();
-        return x >= 0 && x < 6 && y >= 0 && y < 7;
+        return x >= 0 && x < this.height && y >= 0 && y < this.width;
     }
 
+    /**
+     * Checks if the box at the given position is free or does it contain a coin
+     * @param position the given position
+     * @return true if the position is free, false otherwise
+     * @throws NonExistentPositionException if the container does not contain the given position,
+     *                                      this exception will be launch
+     */
     public boolean isFree(Position position) throws NonExistentPositionException {
         if (!contains(position)) {
             throw new NonExistentPositionException("This column does not exist.");
@@ -75,6 +110,13 @@ public class Container {
         return this.container[position.getX()][position.getY()].isFree();
     }
 
+    /**
+     * Gets the coin at the given position
+     * @param position the given position
+     * @return the coin or null if there is no coin at this position
+     * @throws NonExistentPositionException if the container does not contain the given position,
+     *                                      this exception will be launched
+     */
     public Coin getCoin(Position position) throws NonExistentPositionException {
         if (!contains(position)) {
             throw new NonExistentPositionException("This column does not exist.");
@@ -82,6 +124,14 @@ public class Container {
         return this.container[position.getX()][position.getY()].getCoin();
     }
 
+    /**
+     * This method will place a Coin of the given color in the given column if there is still some space
+     * @param y the column
+     * @param color the color of the coin
+     * @throws NonExistentPositionException if the container does not contain the given position,
+     *                                      this exception will be launched
+     * @throws ColumnFullException if the column has no more free space, this exception will be launched
+     */
     public void placeACoin(int y, Color color) throws NonExistentPositionException, ColumnFullException {
         Position position = new Position(0, y);
         if (!this.isFree(position)) {
@@ -93,6 +143,12 @@ public class Container {
         this.isDraw = checkDraw();
     }
 
+    /**
+     * This
+     * @param position
+     * @return
+     * @throws NonExistentPositionException
+     */
     private Position getFirstFreePosition(Position position) throws NonExistentPositionException {
         Position newPos = position;
         if (this.contains(position.next(Direction.S)) && this.isFree(position.next(Direction.S))) {
@@ -117,26 +173,11 @@ public class Container {
     }
 
     private boolean sameColor(Position position, Direction direction, Color color) throws NonExistentPositionException {
-        Map<Direction, Direction> opposites = createOpposites();
         int count = countSameColorCoins(position,direction,1,color);
         if (count < 4) {
-            count += countSameColorCoins(position,opposites.get(direction),0,color);
+            count += countSameColorCoins(position,direction.getOpposite(),0,color);
         }
         return count == 4;
-    }
-
-    private Map<Direction,Direction> createOpposites() {
-        Map<Direction,Direction> map = new HashMap<>();
-        map.put(Direction.N, Direction.S);
-        map.put(Direction.S,Direction.N);
-        map.put(Direction.E, Direction.W);
-        map.put(Direction.W,Direction.E);
-        map.put(Direction.NW, Direction.SE);
-        map.put(Direction.NE,Direction.SW);
-        map.put(Direction.SW, Direction.SE);
-        map.put(Direction.SE,Direction.SW);
-
-        return map;
     }
 
     private int countSameColorCoins(Position position, Direction direction, int count, Color color) throws NonExistentPositionException {

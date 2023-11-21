@@ -1,7 +1,7 @@
 package puissance4.model;
 
 /**
- * The color enumeration contains the two possible color for a coin
+ * The color enumeration contains the two possible Color for a coin
  */
 public enum Color {
     BLUE("\u001B[34m"), YELLOW("\u001B[33m");
@@ -10,7 +10,7 @@ public enum Color {
     private final String info;
 
     /**
-     * Constructor for the Coin
+     * Private constructor for the Color
      * @param info the ANSI information needed for the change of color in the console
      */
     Color(String info) {

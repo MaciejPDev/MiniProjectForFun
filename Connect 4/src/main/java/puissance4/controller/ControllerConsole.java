@@ -32,7 +32,7 @@ public class ControllerConsole {
             }
         }
         if (modelConsole.win()){
-            viewConsole.diplayWinner();
+            viewConsole.displayWinner();
         } else if (modelConsole.draw()){
             viewConsole.displayDraw();
         }
