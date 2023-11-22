@@ -7,18 +7,25 @@ import puissance4.model.ModelConsole;
 import puissance4.view.ViewConsole;
 
 /**
- * @TODO JAVADOC
+ * This class contains all the methods to handle a Controller which controls all the game. It serves as a connexion
+ * between the model and the view.
  */
 public class ControllerConsole {
 
     private final Model modelConsole;
     private final ViewConsole viewConsole;
 
+    /**
+     * Constructor for the Controller
+     */
     public ControllerConsole() {
         this.modelConsole = new ModelConsole();
         this.viewConsole = new ViewConsole(modelConsole);
     }
 
+    /**
+     * This method launches the game and controls. It contains the whole game loop.
+     */
     public void play() {
         viewConsole.displayWelcome();
         modelConsole.start();

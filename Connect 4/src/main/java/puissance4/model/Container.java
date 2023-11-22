@@ -141,7 +141,7 @@ public class Container {
      * @param color the color of the coin
      * @throws NonExistentPositionException if the container does not contain the given position,
      *                                      this exception will be launched
-     * @throws ColumnFullException          if the column has no more free space, this exception will be launched
+     * @throws ColumnFullException if the column has no more free space, this exception will be launched
      */
     public void placeACoin(int y, Color color) throws NonExistentPositionException, ColumnFullException {
         Position position = new Position(0, y);

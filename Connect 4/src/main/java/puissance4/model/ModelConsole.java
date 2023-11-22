@@ -4,7 +4,7 @@ import puissance4.exception.ColumnFullException;
 import puissance4.exception.NonExistentPositionException;
 
 /**
- * @TODO JAVADOC
+ * This class implements the Model interface and so, it contains all the methods to handle a ModelConsole.
  */
 public class ModelConsole implements Model {
 
@@ -14,6 +14,9 @@ public class ModelConsole implements Model {
     private final Player yellowPlayer;
     private final Player bluePlayer;
 
+    /**
+     * Constructor for the ModelConsole
+     */
     public ModelConsole() {
         this.yellowPlayer = new Player(Color.YELLOW);
         this.bluePlayer = new Player(Color.BLUE);
@@ -64,6 +67,10 @@ public class ModelConsole implements Model {
         return this.state == State.DRAW;
     }
 
+    /**
+     * This method is called when there is a possibility that the state game has changed.
+     * It will update the state attribute.
+     */
     private void stateChanger() {
         if (this.container.isWin()) {
             state = State.WIN;

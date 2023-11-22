@@ -69,12 +69,10 @@ public class ViewConsole {
 
     public void displayWelcome() {
         System.out.println("Welcome to Connect 4");
-        /*
-         *System.out.println("This are the rule : \n" +
-         "There is 2 player, Red and Yellow, and you, both, have the same goal, connect 4 of yours coins together.\n" +
-         "For that you need to drop a coin of yours into the different columns. The First one to reach this goal, wins. \n" +
-         "Good luck ! Have fun !");
-         */
+        System.out.println("This are the rule : \n" +
+                "There are 2 player, Blue and Yellow, and you, both, have the same goal, connect 4 of yours coins together.\n" +
+                "For that you need to drop a coin of yours into the different columns. The First one to reach this goal, wins. \n" +
+                "Good luck ! Have fun !");
     }
 
     public void displayTurn() {
