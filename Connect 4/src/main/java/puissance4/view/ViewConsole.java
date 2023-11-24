@@ -97,13 +97,13 @@ public class ViewConsole {
     public void displayWelcome() {
         System.out.println("Welcome to Connect 4");
         System.out.println("This are the rule : \n" +
-                "There are 2 player, Blue and Yellow, and you, both, have the same goal, connect 4 of yours coins together.\n" +
-                "For that you need to drop a coin of yours into the different columns. The First one to reach this goal, wins. \n" +
-                "Good luck ! Have fun !");
+                "\tThere are 2 players, Blue and Yellow, and you, both, have the same goal, connect 4 of yours coins together.\n" +
+                "\tFor that you need to drop a coin of yours into the different columns. The First one to reach this goal, wins. \n" +
+                "\tGood luck ! Have fun !");
     }
 
     /**
-     * Informs the players who's turn it is
+     * Informs the players whose turn it is
      */
     public void displayTurn() {
         System.out.println("It's the turn of " + modelConsole.getCurrentPlayer().getColor().getInfo() + "Player" + ANSI_RESET);
