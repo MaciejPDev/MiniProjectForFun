@@ -6,10 +6,6 @@ import puissance4.exception.NonExistentPositionException;
 import java.util.List;
 
 /**
- * @TODO Finir la javadoc
- */
-
-/**
  * This class contains all the methods to handle a Container, which is technically the board
  */
 public class Container {
@@ -141,7 +137,7 @@ public class Container {
      * @param color the color of the coin
      * @throws NonExistentPositionException if the container does not contain the given position,
      *                                      this exception will be launched
-     * @throws ColumnFullException if the column has no more free space, this exception will be launched
+     * @throws ColumnFullException          if the column has no more free space, this exception will be launched
      */
     public void placeACoin(int y, Color color) throws NonExistentPositionException, ColumnFullException {
         Position position = new Position(0, y);
@@ -155,11 +151,13 @@ public class Container {
     }
 
     /**
-     * This
+     * This method simulates the "gravity". It returns the first free position in the chosen column starting from
+     * the bottom.
      *
-     * @param position
-     * @return
-     * @throws NonExistentPositionException
+     * @param position the position in the column
+     * @return the first free position
+     * @throws NonExistentPositionException if the container does not contain the given position,
+     *                                      this exception will be launched
      */
     private Position getFirstFreePosition(Position position) throws NonExistentPositionException {
         Position newPos = position;
@@ -169,6 +167,15 @@ public class Container {
         return newPos;
     }
 
+    /**
+     * Verifies if the last placed coin caused a victory.
+     *
+     * @param position the position of the last place coin
+     * @param color    the color of the player
+     * @return a boolean : true if the coin allow to create a win situation for the player, false otherwise
+     * @throws NonExistentPositionException if the container does not contain the given position,
+     *                                      this exception will be launched
+     */
     private boolean checkWin(Position position, Color color) throws NonExistentPositionException {
         List<Direction> directions = List.of(
                 Direction.N,
@@ -184,6 +191,16 @@ public class Container {
         return false;
     }
 
+    /**
+     * Verifies if from the given position is it possible a line of 4 same colored coin which causes the victory
+     *
+     * @param position  the position of the last placed coin
+     * @param direction the direction in which we have to verify if there are other coins with the same color
+     * @param color     the color of the current player
+     * @return true if there is a line of 4 same color coins, false otherwise
+     * @throws NonExistentPositionException if the container does not contain the given position,
+     *                                      this exception will be launched
+     */
     private boolean sameColor(Position position, Direction direction, Color color) throws NonExistentPositionException {
         int count = countSameColorCoins(position, direction, 1, color);
         if (count < 4) {
@@ -192,6 +209,17 @@ public class Container {
         return count == 4;
     }
 
+    /**
+     * Method used by the method just above to achieve its purpose.
+     *
+     * @param position  a position
+     * @param direction a direction
+     * @param count     an int
+     * @param color     the color of the current player
+     * @return an int
+     * @throws NonExistentPositionException if the container does not contain the given position,
+     *                                      this exception will be launched
+     */
     private int countSameColorCoins(Position position, Direction direction, int count, Color color) throws NonExistentPositionException {
         int i = 0;
         boolean sameColor = true;
@@ -208,6 +236,13 @@ public class Container {
         return count;
     }
 
+    /**
+     * Verify if the game is not in a draw state
+     *
+     * @return true if there is no possible moves
+     * @throws NonExistentPositionException if the container does not contain the given position,
+     *                                      this exception will be launched
+     */
     private boolean checkDraw() throws NonExistentPositionException {
         for (int i = 0; i < container.length; i++) {
             for (int j = 0; j < container[i].length; j++) {
