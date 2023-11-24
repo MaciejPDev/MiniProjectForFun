@@ -8,9 +8,8 @@ import puissance4.model.Position;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 
-
 /**
- * @TODO JAVADOC
+ * This class contains all the methods to handle a ViewConsole
  */
 public class ViewConsole {
 
@@ -21,14 +20,28 @@ public class ViewConsole {
     private final String ANSI_RESET = "\u001B[0m";
     private final Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Constructor for the viewConsole
+     *
+     * @param modelConsole the model of the game
+     */
     public ViewConsole(Model modelConsole) {
         this.modelConsole = modelConsole;
     }
 
+    /**
+     * Returns an int obtains from a string. This int will be the number of the column in which the player want to place
+     * a coin.
+     *
+     * @return an int
+     */
     public int askForColumn() {
         return Integer.parseInt(readEntry()) - 1;
     }
 
+    /**
+     * Displays the container
+     */
     public void displayContainer() {
         try {
             Container container = modelConsole.getContainer();
@@ -47,6 +60,11 @@ public class ViewConsole {
         }
     }
 
+    /**
+     * Reads the message by entered the player and verifies if the program can work with it
+     *
+     * @return a string
+     */
     private String readEntry() {
         System.out.println("Enter a number between 1 and 7, both included.");
         String x = scanner.nextLine();
@@ -57,16 +75,25 @@ public class ViewConsole {
         }
     }
 
+    /**
+     * Displays the winner
+     */
     public void displayWinner() {
         displayContainer();
         System.out.println("The winner is " + modelConsole.getCurrentPlayer().getColor().getInfo() + "Player" + ANSI_RESET + ".");
     }
 
+    /**
+     * Displays a message to inform that the game's result is a draw
+     */
     public void displayDraw() {
         displayContainer();
         System.out.println("It's a draw. Nobody wins");
     }
 
+    /**
+     * Displays a welcome message and the rules of the game
+     */
     public void displayWelcome() {
         System.out.println("Welcome to Connect 4");
         System.out.println("This are the rule : \n" +
@@ -75,6 +102,9 @@ public class ViewConsole {
                 "Good luck ! Have fun !");
     }
 
+    /**
+     * Informs the players who's turn it is
+     */
     public void displayTurn() {
         System.out.println("It's the turn of " + modelConsole.getCurrentPlayer().getColor().getInfo() + "Player" + ANSI_RESET);
     }
