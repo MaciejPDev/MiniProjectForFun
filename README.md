@@ -11,7 +11,7 @@ This git contains or will contains several projects in multiple language. Its pr
   
   **Please make sure you have maven installed.**
 
-  To launch the console version of Connect 4 :
+  To launch the Connect 4's console version :
 
   1. Place yourself in the Connect 4 directory.
      
