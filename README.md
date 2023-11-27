@@ -1,4 +1,4 @@
-# MiniProjetForFun
+# MiniProjectForFun
 This git contains or will contains several projects in multiple language. Its principal purpose is to test/train/maintain my knowledge.
 
 # Used languages 
