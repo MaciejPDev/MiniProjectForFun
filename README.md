@@ -9,7 +9,9 @@ This git contains or will contains several projects in multiple language. Its pr
 ## Connect 4
   This miniproject contains the implementation of the Connect4 Game. It has a console version and a graphics version (still in works).
   
-  **To launch the console version, make sure you have maven installed.**
+  **Please make sure you have maven installed.**
+
+  To launch the console version of Connect 4 :
 
   1. Place yourself in the Connect 4 directory.
      
