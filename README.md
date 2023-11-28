@@ -26,3 +26,20 @@ This git contains or will contains several projects in multiple language. Its pr
      ```
      mvn exec:java
      ```
+
+
+  To launch the Connect 4's javafx version (still in works) :
+
+  1. Place yourself in the Connect 4 directory.
+     
+  2. Use this command to compile all the files.
+     
+     ```
+     mvn compile
+     ```
+     
+  3. Use this command to launch the game.
+     
+     ```
+     mvn javafx:run
+     ```
