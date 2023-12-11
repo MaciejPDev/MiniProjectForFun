@@ -14,11 +14,11 @@ This git contains or will contains several projects in multiple language. Its pr
 # Projects
 
 ## Connect 4
-  This miniproject contains the `java` implementation of the Connect4 Game. It has a console version and a graphics version (still in works).
+  This miniproject contains the `java` implementation of the Connect4 Game. It has a console version and a graphic version (still in works).
   
-  ` **Please make sure you have maven installed.** `
+  `Please make sure you have maven installed.`
 
-  To launch the Connect 4':
+  To launch the game:
 
   1. Place yourself in the Connect 4 directory.
      
