@@ -7,8 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" spacing="50.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" spacing="50.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="puissance4.view.fx.MenuController">
    <children>
       <Label alignment="CENTER" text="Connect 4">
          <font>
@@ -17,12 +16,12 @@
       </Label>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="50.0">
          <children>
-            <Button mnemonicParsing="false" text="Start the game">
+            <Button fx:id="startButton" mnemonicParsing="false" onAction="#startButtonAction" text="Start the game">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" text="Quit the game">
+            <Button fx:id="quitButton" mnemonicParsing="false" onAction="#quitButtonAction" text="Quit the game">
                <font>
                   <Font size="15.0" />
                </font>

@@ -25,6 +25,9 @@ public class MainFx extends Application {
         } catch (NullPointerException e) {
             System.err.println("The fxml file has not be found");
             System.exit(0);
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            System.exit(0);
         }
     }
 }
