@@ -1,13 +1,17 @@
 # MiniProjectForFun
 This git contains or will contains several projects in multiple language. Its principal purpose is to test/train/maintain my knowledge.
 
+# Table of contents
+* [Used languages](#Used-languages)
+* [Projects](#Projects)
+  * [Connect 4](#Connect-4)
+
 # Used languages 
   - Java
   - C++ (soon)
   - Kotlyn (soon)
 
-# Table of contents
-* [Connect 4](#Connect-4)
+# Projects
 
 ## Connect 4
   This miniproject contains the **java** implementation of the Connect4 Game. It has a console version and a graphics version (still in works).
